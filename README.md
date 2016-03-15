@@ -6,7 +6,7 @@ Gradle:
 ```Java
 compile 'com.ycl.utils:ycllibrary:1.0.0'
 ```
-###集成这个选择照片上传库需要四步！！！
+#####集成这个选择照片上传库需要四步
 ###第一步：
 ####将以下代码加入onCreate()方法中：
 ```Java
@@ -27,7 +27,7 @@ YCLTools.getInstance().upLoadImage(requestCode, resultCode, data);
 ```Java
 <activity android:name="com.ycl.chooseavatar.library.CropImageViewActivity"></activity>
 ```
-###在Manifest.xml中，加入以下权限：
+#####加入以下权限：
 ```Java
 <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
