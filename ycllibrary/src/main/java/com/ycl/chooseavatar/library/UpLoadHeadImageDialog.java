@@ -13,11 +13,7 @@ import android.widget.TextView;
 
 
 
-/**
- * 选择拍照上传头像还是从相册选择图片上传的对话框
- * 作者：yaochangliang on 2016/3/14 11:19
- * 邮箱：yaochangliang159@sina.com
- */
+
 public class UpLoadHeadImageDialog extends Dialog {
 	TextView tv_take_picture;
 	TextView tv_choose_gallery;
@@ -77,8 +73,7 @@ public class UpLoadHeadImageDialog extends Dialog {
 
 		DisplayMetrics metric = new DisplayMetrics();
 		activity.getWindowManager().getDefaultDisplay().getMetrics(metric);
-		int width = metric.widthPixels;     // 屏幕宽度（像素）
-		//int height = metric.heightPixels;   // 屏幕高度（像素）
+		int width = metric.widthPixels;
 		p.width=(int) (width*0.8);
 		getWindow().setAttributes(p);
 	}

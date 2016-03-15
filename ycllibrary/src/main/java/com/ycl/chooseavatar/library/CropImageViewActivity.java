@@ -20,10 +20,10 @@ public class CropImageViewActivity extends Activity {
 
     private static String YCL_FOLDER_PATH = Environment.getExternalStorageDirectory()
             .getAbsolutePath() + File.separator + "ycl/";
-    //设置的 一条边的最大数
+
     private static int MAX_PARAMS = 0;
 
-    //设置上传到服务器的图片的大小
+
     private static int TO_SERVER_IMAGE_HEIGHT = 0;
     private static int TO_SERVER_IMAGE_WIDTH = 0;
 

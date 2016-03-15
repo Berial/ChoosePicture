@@ -13,10 +13,7 @@ import android.support.v4.app.Fragment;
 import java.io.File;
 
 
-/**
- * 作者：yaochangliang on 2016/3/14 11:19
- * 邮箱：yaochangliang159@sina.com
- */
+
 public class YCLTools {
 	public static OnChoosePictureListener listener=null;
 	private static YCLTools tools;
@@ -83,7 +80,6 @@ public class YCLTools {
 		if (resultCode == Activity.RESULT_OK) {
 			Intent intent;
 			switch (requestCode) {
-			// 拍照
 			case YCLTools.MODE_UPLOAD_IMAGE_CAMERA:
 				intent=new Intent(activity,CropImageViewActivity.class);
 				intent.putExtra("photo_path", imagePath);
@@ -91,7 +87,6 @@ public class YCLTools {
 				activity.startActivity(intent);
 				
 				break;
-			// 从相册选择
 			case YCLTools.MODE_UPLOAD_IMAGE_ABLUME:
 
 				Uri selectedImage = data.getData();
