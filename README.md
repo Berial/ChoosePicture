@@ -33,11 +33,7 @@ YCLTools.getInstance().upLoadImage(requestCode, resultCode, data);
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
 ```
 ####到这里就可以把项目跑起来了
-####设置
-```Java
- YCLTools.getInstance().setMaxPx(1280);
-```
-  该方法设置裁剪时的图片在屏幕上宽或高的最大值，即宽或者高总有一个是等于你设置的数值，默认设置为720
+
 ####以下是一个简单的例子：
 ```Java
 public class MainActivity extends AppCompatActivity implements OnChoosePictureListener {
