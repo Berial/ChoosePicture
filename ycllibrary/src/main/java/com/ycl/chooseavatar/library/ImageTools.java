@@ -110,6 +110,61 @@ public final class ImageTools {
 		
 	}
 
+	public static Bitmap rotateBitmap(String path,  int screenWidth, int screenHeight) {
+		Bitmap bitmap = null;
+		int orientation=readPictureDegree(path);
+		final int maxWidth = screenWidth;
+		final int maxHeight = screenHeight;
+		try {
+			final BitmapFactory.Options options = new BitmapFactory.Options();
+			options.inJustDecodeBounds = true;
+			BitmapFactory.decodeFile(path, options);
+			int sourceWidth, sourceHeight;
+			if (orientation == 90 || orientation == 270) {
+				sourceWidth = options.outHeight;
+				sourceHeight = options.outWidth;
+			} else {
+				sourceWidth = options.outWidth;
+				sourceHeight = options.outHeight;
+			}
+			boolean compress = false;
+			if (sourceWidth > maxWidth || sourceHeight > maxHeight) {
+				float widthRatio = (float) sourceWidth / (float) maxWidth;
+				float heightRatio = (float) sourceHeight / (float) maxHeight;
+
+				options.inJustDecodeBounds = false;
+				if (new File(path).length() > 512000) {
+					float maxRatio = Math.max(widthRatio, heightRatio);
+					options.inSampleSize = (int) maxRatio;
+					compress = true;
+				}
+				bitmap = BitmapFactory.decodeFile(path, options);
+			} else {
+				bitmap = BitmapFactory.decodeFile(path);
+			}
+			if (orientation > 0) {
+				Matrix matrix = new Matrix();
+				//matrix.postScale(sourceWidth, sourceHeight);
+				matrix.postRotate(orientation);
+				bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+			}
+			sourceWidth = bitmap.getWidth();
+			sourceHeight = bitmap.getHeight();
+			if ((sourceWidth > maxWidth || sourceHeight > maxHeight) && compress) {
+				float widthRatio = (float) sourceWidth / (float) maxWidth;
+				float heightRatio = (float) sourceHeight / (float) maxHeight;
+				float maxRatio = Math.max(widthRatio, heightRatio);
+				sourceWidth = (int) ((float) sourceWidth / maxRatio);
+				sourceHeight = (int) ((float) sourceHeight / maxRatio);
+				Bitmap bm = Bitmap.createScaledBitmap(bitmap, sourceWidth, sourceHeight, true);
+				bitmap.recycle();
+				return bm;
+			}
+		} catch (Exception e) {
+		}
+		return bitmap;
+	}
+
 	public static Bitmap getSmallBitmap(String path){
 
 		BitmapFactory.Options options=new BitmapFactory.Options();

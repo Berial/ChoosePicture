@@ -47,7 +47,7 @@ public class MyFragment extends Fragment implements OnChoosePictureListener {
 
     @Override
     public void OnCancel() {
-        Toast.makeText(getActivity(),"OnCancel",Toast.LENGTH_LONG).show();
+
 
     }
 }

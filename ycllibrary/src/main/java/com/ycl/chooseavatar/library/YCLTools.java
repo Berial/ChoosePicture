@@ -22,7 +22,6 @@ public class YCLTools {
 
 	public static final int MODE_UPLOAD_IMAGE_ABLUME = 921;
 
-    private int maxPx=720;
 	private Activity activity;
 	private static String YCL_FOLDER_PATH=Environment.getExternalStorageDirectory()
 			.getAbsolutePath() + File.separator + "ycl/";
@@ -83,7 +82,6 @@ public class YCLTools {
 			case YCLTools.MODE_UPLOAD_IMAGE_CAMERA:
 				intent=new Intent(activity,CropImageViewActivity.class);
 				intent.putExtra("photo_path", imagePath);
-				intent.putExtra("maxPx", maxPx);
 				activity.startActivity(intent);
 				
 				break;
@@ -102,7 +100,6 @@ public class YCLTools {
 
 				intent=new Intent(activity,CropImageViewActivity.class);
 				intent.putExtra("photo_path", path);
-				intent.putExtra("maxPx", maxPx);
 				activity.startActivity(intent);
 
 				
@@ -114,13 +111,6 @@ public class YCLTools {
 		listener=l;
 	}
 
-	/**
-	 *
-	 * @param maxPx defalut is 720
-     */
-	public void setMaxPx(int maxPx){
-		this.maxPx=maxPx;
-	}
 
 
 

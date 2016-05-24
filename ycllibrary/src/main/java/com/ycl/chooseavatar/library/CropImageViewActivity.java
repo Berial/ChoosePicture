@@ -1,12 +1,15 @@
 package com.ycl.chooseavatar.library;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.isseiaoki.simplecropview.CropImageView;
@@ -20,12 +23,6 @@ public class CropImageViewActivity extends Activity {
 
     private static String YCL_FOLDER_PATH = Environment.getExternalStorageDirectory()
             .getAbsolutePath() + File.separator + "ycl/";
-
-    private static int MAX_PARAMS = 0;
-
-
-    private static int TO_SERVER_IMAGE_HEIGHT = 0;
-    private static int TO_SERVER_IMAGE_WIDTH = 0;
 
     private String TEMP_PIC_NAME = "temp_headImg";
 
@@ -41,24 +38,14 @@ public class CropImageViewActivity extends Activity {
         setContentView(R.layout.crop_imageview);
 
         init();
-        MAX_PARAMS=this.getIntent().getIntExtra("maxPx",720);
         String path = this.getIntent().getStringExtra("photo_path");
-        Bitmap bitmap = BitmapFactory.decodeFile(path);
+        WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+        int width = wm.getDefaultDisplay().getWidth();
+        int height = wm.getDefaultDisplay().getHeight();
+        Bitmap bitmap =ImageTools.rotateBitmap(path, width,height);
+        cropImageView.setImageBitmap(bitmap);
+         cropImageView.setCropMode(CropImageView.CropMode.RATIO_FREE);
 
-        bitmap = ImageTools.rotateBitmap(bitmap, path);
-        if (bitmap != null) {
-            if (bitmap.getHeight() > bitmap.getWidth()) {
-                TO_SERVER_IMAGE_HEIGHT = MAX_PARAMS;
-                TO_SERVER_IMAGE_WIDTH = (int) (bitmap.getWidth() * ((float) TO_SERVER_IMAGE_HEIGHT / bitmap.getHeight()));
-            } else {
-                TO_SERVER_IMAGE_WIDTH = MAX_PARAMS;
-                TO_SERVER_IMAGE_HEIGHT = (int) (bitmap.getHeight() * ((float) TO_SERVER_IMAGE_WIDTH / bitmap.getWidth()));
-            }
-            bitmap = ImageTools.zoomBitmap(bitmap, TO_SERVER_IMAGE_WIDTH, TO_SERVER_IMAGE_HEIGHT);
-            cropImageView.setImageBitmap(bitmap);
-            cropImageView.setCropMode(CropImageView.CropMode.RATIO_FREE);
-
-        }
     }
 
     private void init() {
