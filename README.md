@@ -4,7 +4,7 @@ android 拍照裁剪照片，从相册选择照片裁剪,android take picture,ch
 Gradle:
 ###build.gradle里面，添加：
 ```Java
-compile 'com.ycl.utils:ycllibrary:1.0.0'
+compile 'com.ycl.utils:ycllibrary:1.1'
 ```
 #####集成这个选择照片上传库需要四步
 ###第一步：
