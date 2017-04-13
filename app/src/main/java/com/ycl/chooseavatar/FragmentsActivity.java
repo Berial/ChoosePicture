@@ -17,7 +17,7 @@ public class FragmentsActivity extends FragmentActivity {
         setContentView(R.layout.fragments_activity);
         MyFragment myFragment=new MyFragment();
 
-        getSupportFragmentManager().beginTransaction().add(R.id.container,myFragment).commit();
+        getFragmentManager().beginTransaction().add(R.id.container,myFragment).commit();
 
     }
 
