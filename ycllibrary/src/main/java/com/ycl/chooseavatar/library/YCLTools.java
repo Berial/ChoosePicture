@@ -7,7 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 
 
 import java.io.File;

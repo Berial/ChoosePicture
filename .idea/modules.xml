@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ChooseAvatarDemo.iml" filepath="$PROJECT_DIR$/ChooseAvatarDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ChoosePicture.iml" filepath="$PROJECT_DIR$/ChoosePicture.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ycllibrary/ycllibrary.iml" filepath="$PROJECT_DIR$/ycllibrary/ycllibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/ycllibrary/ycllibrary.iml" filepath="$PROJECT_DIR$/ycllibrary/ycllibrary.iml" />
     </modules>
   </component>
